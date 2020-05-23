@@ -4,17 +4,18 @@ using UnityEngine;
 
 public class EggDropper : MonoBehaviour
 {
-    public GameObject egg;
+    public GameObject eggPrefab;
     public float speed = 1f;
     public float secondsBetweenDrop = 1f;
     public float collisionWidth = 10f;
     public float changeOfDirectionSwitch = 0.1f;
+    public float eggOffset = 1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Dropping apples every second
-
+        //Dropping eggs every second
+        InvokeRepeating("DropEgg", 2f, secondsBetweenDrop);
     }
 
     // Update is called once per frame
@@ -34,10 +35,22 @@ public class EggDropper : MonoBehaviour
         {
             speed = -Mathf.Abs(speed); //hits right side
 
-        } else if (Random.value < changeOfDirectionSwitch)
+        } 
+    }
+
+    private void FixedUpdate()
+    {
+        if (Random.value < changeOfDirectionSwitch)
         {
             speed *= -1; //Change direction
         }
+    }
 
+    void DropEgg()
+    {
+        GameObject egg = Instantiate(eggPrefab) as GameObject;
+        Vector3 posUnder = transform.position;
+        posUnder.y -= eggOffset;
+        egg.transform.position = posUnder;
     }
 }

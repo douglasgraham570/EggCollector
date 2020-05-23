@@ -247,11 +247,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81cbe63215a764bbf8ce191f976d7217, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  egg: {fileID: 8036400150190821835, guid: 178450bfd01204d41bddb4032bf02afb, type: 3}
+  eggPrefab: {fileID: 8036400150190821835, guid: 178450bfd01204d41bddb4032bf02afb, type: 3}
   speed: 10
   secondsBetweenDrop: 1
   collisionWidth: 25
-  changeOfDirectionSwitch: 0.01
+  changeOfDirectionSwitch: 0.02
+  eggOffset: 4
 --- !u!4 &346077728
 Transform:
   m_ObjectHideFlags: 0
