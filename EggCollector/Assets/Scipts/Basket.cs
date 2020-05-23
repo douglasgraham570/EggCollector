@@ -22,5 +22,17 @@ public class Basket : MonoBehaviour
         Vector3 pos = this.transform.position;
         pos.x = mousePos3D.x;
         this.transform.position = pos;
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        //Find out what hit the basket
+        GameObject collidedWith = collision.gameObject;
+
+        if (collidedWith.tag == "Egg")
+        {
+            Destroy(collidedWith);
+        }
     }
 }
