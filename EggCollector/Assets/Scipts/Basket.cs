@@ -30,9 +30,9 @@ public class Basket : MonoBehaviour
         //Find out what hit the basket
         GameObject collidedWith = collision.gameObject;
 
-        if (collidedWith.tag == "Egg")
+        if (collidedWith.tag == "Egg" || collidedWith.tag == "Red Egg")
         {
             Destroy(collidedWith);
-        }
+        } 
     }
 }
