@@ -22,11 +22,6 @@ public class EggDropper : MonoBehaviour
     private float elapsedTimeRed = 0f;
     private float elapsedTime = 0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -69,9 +64,9 @@ public class EggDropper : MonoBehaviour
                 speed -= Mathf.Log10(elapsedTime);
             }
 
-            Debug.Log("Current dropper speed: " + speed);
+            //Debug.Log("Current dropper speed: " + speed);
 
-            Debug.Log("Egg Drop Ratio: " + eggDropRatio);
+            //Debug.Log("Egg Drop Ratio: " + eggDropRatio);
         }
 
         //Increase egg drop ratio

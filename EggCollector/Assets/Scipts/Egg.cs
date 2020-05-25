@@ -12,6 +12,12 @@ public class Egg : MonoBehaviour
         if (transform.position.y < bottomY)
         {
             Destroy(this.gameObject);
+
+            //get a reference to the game manager
+            GameManager gameManager = Camera.main.GetComponent<GameManager>();
+
+            //call the public eggDestroyed function of the gameManager script
+            gameManager.EggDestroyed();
         }
     }
 }
