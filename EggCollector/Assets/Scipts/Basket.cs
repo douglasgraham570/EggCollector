@@ -7,17 +7,20 @@ using UnityEngine.UI;
 public class Basket : MonoBehaviour
 {
     public Text scoreGT;
+    int score;
 
     private void Start()
     {
-         //find reference to scoreCounter object
+        score = 0;
+
+        //find reference to scoreCounter object
         GameObject ScoreGO = GameObject.Find("ScoreCounter");
 
         //assign scoreCounter's text to scoreGT
         scoreGT = ScoreGO.GetComponent<Text>();
 
         //initialize the starting score to "0"
-        scoreGT.text = "0";
+        scoreGT.text = "Score: 0";
     }
 
     // Update is called once per frame
@@ -49,13 +52,14 @@ public class Basket : MonoBehaviour
             Destroy(collidedWith);
         }
 
-        //parse the text of the score to an int
-        int score = int.Parse(scoreGT.text);
-
         score += 1;
-
         //convert score back to a string and display it
-        scoreGT.text = score.ToString();
-        
+        scoreGT.text = "Score: " + score;
+
+        //track the high score
+        if (score > ScoreManager.highScore)
+        {
+            ScoreManager.highScore = score;
+        }
     }
 }

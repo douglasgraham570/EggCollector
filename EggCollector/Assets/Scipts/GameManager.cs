@@ -38,17 +38,6 @@ public class GameManager : MonoBehaviour
         }
 
         Debug.Log(basketList.Count);
-        //destroy second to last basket (special case due to array sizing)
-        //if (basketList.Count == 3)
-        //{
-
-            //GameObject secondBasket = basketList[1];
-           // Debug.Log(secondBasket.name);
-            //Destroy(secondBasket);
-            //basketList.RemoveAt(1);
-
-        //}
-        //else { 
 
 
             //Destroy one of the baskets
