@@ -7,11 +7,10 @@ using UnityEngine.UI;
 public class Basket : MonoBehaviour
 {
     public Text scoreGT;
-    int score;
 
     private void Start()
     {
-        score = 0;
+        
 
         //find reference to scoreCounter object
         GameObject ScoreGO = GameObject.Find("ScoreCounter");
@@ -50,14 +49,14 @@ public class Basket : MonoBehaviour
         if (collidedWith.tag == "Egg")
         {
             Destroy(collidedWith);
-            score += 1;
+            ScoreManager.score += 1;
             //convert score back to a string and display it
-            scoreGT.text = "Score: " + score;
+            scoreGT.text = "Score: " + ScoreManager.score;
 
             //track the high score
-            if (score > ScoreManager.highScore)
+            if (ScoreManager.score > ScoreManager.highScore)
             {
-                ScoreManager.highScore = score;
+                ScoreManager.highScore = ScoreManager.score;
             }
         }
 
