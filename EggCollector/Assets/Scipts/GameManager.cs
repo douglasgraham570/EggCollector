@@ -30,14 +30,15 @@ public class GameManager : MonoBehaviour
     public void EggDestroyed()
     {
         //destroy all of the falling eggs
-        GameObject[] tEggArray = GameObject.FindGameObjectsWithTag("Egg");
+        List<GameObject> tEggArray = new List<GameObject> (GameObject.FindGameObjectsWithTag("Egg"));
+        tEggArray.AddRange(new List<GameObject>(GameObject.FindGameObjectsWithTag("Red Egg")));
 
-        foreach (GameObject tGO in tEggArray)
+            foreach (GameObject tGO in tEggArray)
         {
             Destroy(tGO);
         }
 
-        Debug.Log(basketList.Count);
+        //Debug.Log(basketList.Count);
 
 
             //Destroy one of the baskets

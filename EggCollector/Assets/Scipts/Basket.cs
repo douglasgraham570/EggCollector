@@ -47,19 +47,32 @@ public class Basket : MonoBehaviour
         //Find out what hit the basket
         GameObject collidedWith = collision.gameObject;
 
-        if (collidedWith.tag == "Egg" || collidedWith.tag == "Red Egg")
+        if (collidedWith.tag == "Egg")
         {
             Destroy(collidedWith);
+            score += 1;
+            //convert score back to a string and display it
+            scoreGT.text = "Score: " + score;
+
+            //track the high score
+            if (score > ScoreManager.highScore)
+            {
+                ScoreManager.highScore = score;
+            }
         }
 
-        score += 1;
-        //convert score back to a string and display it
-        scoreGT.text = "Score: " + score;
-
-        //track the high score
-        if (score > ScoreManager.highScore)
+        //egs destroyed and round is over if red egg collides with basket
+        else if (collidedWith.tag == "Red Egg")
         {
-            ScoreManager.highScore = score;
+            Debug.Log("Red egg collided with");
+            Destroy(collidedWith);
+
+            //get a reference to the game manager
+            GameManager gameManager = Camera.main.GetComponent<GameManager>();
+
+            //call the public eggDestroyed function of the gameManager script
+            gameManager.EggDestroyed();
         }
+
     }
 }
